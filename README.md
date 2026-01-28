@@ -134,13 +134,13 @@ Documentation             Technical and operational manuals for operators
 
 This project strengthens Rootstock’s ecosystem by:
 
-Expanding real-world access to rBTC through cash-based infrastructure.
+- Expanding real-world access to rBTC through cash-based infrastructure.
 
-Advancing decentralization, with each ATM operating autonomously.
+- Advancing decentralization, with each ATM operating autonomously.
 
-Enhancing global adoption, by supporting multiple fiat currencies.
+- Enhancing global adoption, by supporting multiple fiat currencies.
 
-Driving financial inclusion, connecting unbanked users to Bitcoin-based DeFi.
+- Driving financial inclusion, connecting unbanked users to Bitcoin-based DeFi.
 
 The combination of physical access points, decentralized architecture, and local currency support represents a scalable blueprint for Rootstock adoption worldwide.
 

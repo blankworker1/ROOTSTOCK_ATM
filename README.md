@@ -6,7 +6,7 @@ Decentralized, Multi-Currency rBTC Integration for K1 Lightning ATMs
 
 K1, a fintech innovator based in El Salvador, operates a network of Bitcoin Lightning ATMs that provide users with direct, cash-based access to Bitcoin.
 
-This proposal seeks support from the Rootstock Collective to develop and deploy a decentralized, multi-currency software upgrade for K1’s ATM platform—enabling customers worldwide to buy rBTC (Rootstock Bitcoin) directly with local cash.
+This proposal seeks support from the Rootstock Collective (or interested software developer) to develop and deploy a decentralized, multi-currency software upgrade for K1’s ATM platform—enabling customers worldwide to buy rBTC (Rootstock Bitcoin) directly with local cash.
 
 Each ATM will operate independently, with its own wallet and on-chain transaction management, ensuring full decentralization. The new system will support local fiat currencies (e.g., USD in El Salvador, EUR in Europe) and use the ATM’s built-in camera to scan the user’s RSK wallet QR code from their mobile phone—providing a simple, intuitive, and non-custodial user experience.
 

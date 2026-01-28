@@ -1,5 +1,8 @@
 # ROOTSTOCK ATM
 
+![ATM image](https://emerald-real-clownfish-172.mypinata.cloud/ipfs/bafkreiaqdh7bo4fr3pjrvb5s64rk4kfdqjmhjvmpnmdkw733avylghefku)
+
+
 Decentralized, Multi-Currency rBTC Integration for K1 Lightning ATMs
 
 ## 1. Executive Summary

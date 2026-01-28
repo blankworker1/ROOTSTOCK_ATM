@@ -113,13 +113,20 @@ Transaction receipt and confirmation displayed on screen.
 
 **Deliverables**
 
-Deliverable	Description
-ATM Software Upgrade	Core software enabling rBTC purchase, multi-currency, and QR scanning
-Dashboard Application	Web-based interface for configuration, monitoring, and analytics
-API & Node Integration	Secure node interaction layer for transaction broadcasting
-Pilot Deployment	3–5 ATMs in El Salvador and 1 EU-based pilot (Euro integration)
-Documentation & Training	Technical and operational manuals for operators
-Open Source Components	Select SDK and dashboard modules released to Rootstock community.
+```
+Deliverable	           Description
+
+ATM Software Upgrade	 Core software enabling rBTC purchase, multi-currency, and QR scanning
+
+Dashboard Application	 Web-based interface for configuration, monitoring, and analytics
+
+API & Node Integration Secure node interaction layer for transaction broadcasting
+
+Pilot Deployment	     3–5 ATMs in El Salvador and 1 EU-based pilot (Euro integration)
+
+Documentation       	Technical and operational manuals for operators
+
+```
 
 ---
 

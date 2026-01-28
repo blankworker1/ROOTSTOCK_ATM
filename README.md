@@ -1,313 +1,152 @@
-# ROOTSTOCK_ATM
+# ROOTSTOCK ATM
 
-Below is a high-level outline for software to adapt an Android tablet–based ATM that currently sells Lightning sats for cash to sell rBTC on Rootstock blockchain.
+Decentralized, Multi-Currency rBTC Integration for K1 Lightning ATMs
 
+## 1. Executive Summary
 
----
+K1, a fintech innovator based in El Salvador, operates a network of Bitcoin Lightning ATMs that provide users with direct, cash-based access to Bitcoin.
 
-## 1. System Overview
+This proposal seeks support from the Rootstock Collective to develop and deploy a decentralized, multi-currency software upgrade for K1’s ATM platform—enabling customers worldwide to buy rBTC (Rootstock Bitcoin) directly with local cash.
 
-Goal: Enable a physical ATM (Android tablet + peripherals) to accept cash and dispense rBTC (Rootstock Bitcoin) to a user-provided address.
+Each ATM will operate independently, with its own wallet and on-chain transaction management, ensuring full decentralization. The new system will support local fiat currencies (e.g., USD in El Salvador, EUR in Europe) and use the ATM’s built-in camera to scan the user’s RSK wallet QR code from their mobile phone—providing a simple, intuitive, and non-custodial user experience.
 
-Key differences from Lightning ATM:
+A complementary dashboard application will allow operators to configure each ATM, monitor transactions, and manage wallets while maintaining the decentralized nature of the network.
 
-On-chain (or sidechain) settlement instead of invoice-based Lightning
+This initiative expands real-world accessibility to the Rootstock ecosystem and advances Bitcoin-based DeFi adoption at the grassroots level.
 
-Longer confirmation model
+--- 
 
-Gas management
+## 2. Background
 
-Address validation for Rootstock
+K1 Overview
 
+Website: https://k1.sv
 
+Headquarters: San Salvador, El Salvador
 
----
+ATM Network: 150 units in operation, expanding internationally
 
-## 2. Functional Requirements
+Current capability: Bitcoin and Lightning transactions (cash-based)
 
-User Flow:
+K1’s mission is to make Bitcoin and blockchain-based finance accessible to everyone.
 
-- User selects Buy rBTC
+As K1 expands beyond El Salvador, local currency integration becomes essential.
 
-- User enters or scans Rootstock address
+Each ATM will be pre-configured for its regional currency (e.g., Euros in the EU, USD in the Americas, etc.), allowing seamless integration with local markets and compliance environments.
 
-Machine displays:
-
-- Exchange rate eg EURO → rBTC (set according to coin reader)
-
-- Network fee
-
-- Minimum confirmations / settlement disclaimer
-
-- User inserts cash
-
-System:
-
-- Locks rate for a defined time window
-
-- Broadcasts rBTC transaction
-
+By introducing rBTC purchasing capabilities, K1 connects physical cash economies directly to Rootstock’s smart contract layer, unlocking Bitcoin-native DeFi for unbanked and cash-preferring populations.
 
 ---
 
-## 3. Wallet & Blockchain Interaction
+## 3. Project Objective
 
-rBTC Wallet Management
+To design, develop, and deploy a decentralized, multi-currency ATM software system that enables:
 
-Must control one or more Rootstock-compatible wallets
+- Cash-to-rBTC transactions, using local fiat currencies.
 
-Support:
+- QR code wallet scanning via built-in ATM camera.
 
-Hot wallet for real-time dispensing
+- Independent ATM operation, with each device running its own wallet.
 
-Optional warm/cold wallet refills
+- Decentralized configuration and monitoring via a secure dashboard.
 
-
-Secure private key storage (Android Keystore / HSM / external signer)
-
-
-Rootstock Network
-
-Connect to:
-
-Self-hosted Rootstock node or
-
-Trusted RPC provider
-
-
-Capabilities:
-
-Get current gas price
-
-Broadcast transactions
-
-Track confirmations
-
-Query balances
-
-
-
+The resulting network will be modular, open, and globally deployable - empowering anyone to access rBTC directly using cash without intermediaries.
 
 ---
 
-## 4. Address Handling
+## 4. Technical Design Overview
 
-Accept Rootstock EVM addresses
+**Decentralized ATM Architecture**
 
-Hex format (0x…)
+Each ATM will run its own rBTC wallet managed via a lightweight Rootstock node or SDK.
 
+Transactions are signed and broadcast directly from the ATM.
 
-QR scanning via tablet camera (built into ATM)
+Private keys remain local to each ATM; no central custody or routing.
 
-Validate:
+Wallets use HD key derivation for secure backups and rotation.
 
-Correct checksum (EIP-55)
 
-Not a contract address (optional policy)
+**Multi-Currency Configuration**
 
+Each ATM is pre-configured for local currency (e.g., USD, EUR, GBP, MXN).
 
-Display warning:
+Exchange rates sourced from reliable oracles or APIs (e.g., CoinGecko, Rootstock oracles).
 
-“Do not use Bitcoin mainnet addresses”
+Operators can adjust fee margins, rate sources, and localization via the dashboard.
 
+**QR Code Wallet Scanning**
 
+The ATM’s built-in camera is used to scan the user’s RSK wallet QR code.
 
+The system extracts the on-chain address and confirms validity before proceeding.
 
----
-
-## 5. Exchange Rate & Pricing
-
-Fiat → BTC → rBTC pricing logic
-
-Sources:
-
-Exchange APIs
-
-Fixed operator-defined pricing
-
-
-Spread & fees:
-
-Operator margin
-
-Network gas fees
-
-
-Rate lock duration:
-
-Short window (e.g., 2–5 minutes)
-
-
-
-
----
-
-## 6. Hardware Integration Requirements
-
-**Cash Acceptor**
-
-Bill/coin acceptor interface
-
-Requirements:
-
-Real-time denomination detection
-
-Jam/error handling
-
-
-**Android Tablet**
-
-Minimum OS version defined
-
-Camera access for QR scanning
-
-USB / serial / GPIO support for peripherals
-
-
-
----
-
-## 7. Security Requirements
-
-**Key Security**
-
-No plain-text private keys on disk
-
-Use:
-
-Android Keystore
-
-Encrypted storage
-
-
-Backup & recovery process defined
-
-
-**Transaction Security**
-
-Rate-limit withdrawals
-
-Per-transaction max limits
-
-Daily volume caps
-
-Operator emergency stop / kill switch
-
-
----
-
-## 8. Compliance & Policy Layer (Configurable)
-
-
-Transaction logging:
-
-Fiat amount
-
-rBTC amount
-
-Address
-
-Timestamp
-
-
-Configurable by jurisdiction
-
-
-
----
-
-## 9. Backend / Operator Services
+Eliminates manual address entry, improving user experience and accuracy.
 
 **Operator Dashboard**
 
-Machine status
+A secure, decentralized dashboard application will provide:
 
-Wallet balances
+ATM registration and configuration (currency, exchange source, wallet info).
 
-Cash levels
+Transaction monitoring and reconciliation.
 
-Transaction history
+Real-time status indicators (uptime, balances, errors).
 
-Error logs
+Encrypted communication with ATMs for management without centralized control.
 
+**Transaction Flow**
 
-**Machine Management**
+User selects “Buy rBTC” at the ATM.
 
-Remote updates
+ATM fetches current exchange rate for local currency → rBTC.
 
-Parameter configuration:
+User inserts local cash.
 
-Fees
+User presents RSK wallet QR code via mobile wallet app.
 
-Limits
+ATM scans code and verifies address.
 
-Enable/disable Lightning vs rBTC
+ATM executes and broadcasts an on-chain rBTC transaction.
 
+Transaction receipt and confirmation displayed on screen.
 
-Health checks & alerts
+**Deliverables**
 
-
-
----
-
-**Failure & Edge Case Handling**
-
-Cash inserted but tx fails
-
-Retry logic
-
-Manual reconciliation process
-
-
-Network congestion
-
-Dynamic gas adjustment
-
-
-Power loss mid-transaction
-
-Transaction journal
-
-
+Deliverable	Description
+ATM Software Upgrade	Core software enabling rBTC purchase, multi-currency, and QR scanning
+Dashboard Application	Web-based interface for configuration, monitoring, and analytics
+API & Node Integration	Secure node interaction layer for transaction broadcasting
+Pilot Deployment	3–5 ATMs in El Salvador and 1 EU-based pilot (Euro integration)
+Documentation & Training	Technical and operational manuals for operators
+Open Source Components	Select SDK and dashboard modules released to Rootstock community.
 
 ---
 
-## 10. Differences vs Lightning ATM (Key Design Impacts)
+## 5. Impact & Alignment with Rootstock Collective Goals
 
-```
+This project strengthens Rootstock’s ecosystem by:
 
-Aspect	    Lightning	      rBTC
+Expanding real-world access to rBTC through cash-based infrastructure.
 
-Settlement	Instant	        Delayed (blocks)
+Advancing decentralization, with each ATM operating autonomously.
 
-UX	        Invoice-based	  Address-based
+Enhancing global adoption, by supporting multiple fiat currencies.
 
-Fees	      Routing fees	  Gas fees
+Driving financial inclusion, connecting unbanked users to Bitcoin-based DeFi.
 
-Risk	      Low volatility. Higher exposure
-
-
-```
+The combination of physical access points, decentralized architecture, and local currency support represents a scalable blueprint for Rootstock adoption worldwide.
 
 ---
 
-## 11. Non-Functional Requirements
+## 6. Future Development Opportunities
 
-High availability
+Following successful deployment, the framework can be expanded to:
 
-Offline tolerance (queue tx until online)
+Enable rBTC-to-cash withdrawals ( if ATM version has two way functionality)
 
-Modular blockchain layer
+Support token purchases or swaps (RIF, stablecoins, etc.).
 
-Auditability
+Integrate Rootstock DeFi and savings dApps.
 
-Localization / multi-language UI
-
-
-
-
-
-
-
-
-
+Deploy across partner ATM networks in Latin America, Europe, and Africa.

@@ -120,11 +120,11 @@ ATM Software Upgrade	  Core software enabling rBTC purchase, multi-currency, and
 
 Dashboard Application	  Web-based interface for configuration, monitoring, and analytics
 
-API & Node Integration  Secure node interaction layer for transaction broadcasting
+API & Node Integration    Secure node interaction layer for transaction broadcasting
 
 Pilot Deployment	      3–5 ATMs in El Salvador and 1 EU-based pilot (Euro integration)
 
-Documentation         	Technical and operational manuals for operators
+Documentation           	Technical and operational manuals for operators
 
 ```
 

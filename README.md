@@ -114,7 +114,7 @@ Transaction receipt and confirmation displayed on screen.
 **Deliverables**
 
 ```
-Deliverable	             Description
+Deliverable	              Description
 
 ATM Software Upgrade	  Core software enabling rBTC purchase, multi-currency, and QR scanning 
 
@@ -124,7 +124,7 @@ API & Node Integration    Secure node interaction layer for transaction broadcas
 
 Pilot Deployment	      3–5 ATMs in El Salvador and 1 EU-based pilot (Euro integration)
 
-Documentation           	Technical and operational manuals for operators
+Documentation           Technical and operational manuals for operators
 
 ```
 

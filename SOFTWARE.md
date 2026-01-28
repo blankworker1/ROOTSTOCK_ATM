@@ -1,8 +1,6 @@
 # SOFTWARE
 
 
-# ROOTSTOCK_ATM
-
 Below is a high-level outline for software to adapt an Android tablet–based ATM that currently sells Lightning sats for cash to sell rBTC on Rootstock blockchain.
 
 
